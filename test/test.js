@@ -11,7 +11,7 @@ describe('Get /recipe', function() {
     it('should return status code 200', function (done) {
         const url = server.url + "/recipe"
         http.get(url, (res) => {
-            expect(res.statusCode).to.equal(200)
+            expect(res.statusCode).to.be.equal(200)
             done()
         })
     })
