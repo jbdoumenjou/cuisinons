@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/jbdoumenjou/cuisinons/issues"
   },
-  "homepage": "https://github.com/jbdoumenjou/cuisinons#readme"
+  "homepage": "https://github.com/jbdoumenjou/cuisinons#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  }
 }
