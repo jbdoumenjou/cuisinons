@@ -6,26 +6,20 @@ const port = 8080
 
 let instance
 
-const server = http.createServer((req, res) => {
-    const requestedRoute = req.method.toLowerCase() + ' ' + req.url
-    const action = routes[requestedRoute]
-
-    if (!!action) {
-        ok(res, action)
-    } else {
-        fail(res)
-    }
+const server = http.createServer((request, response) => {
+    routes.route(request, response)
+        .then(data => ok(response, data))
+        .catch(fail(response))
 })
 
-function ok(response, action) {
+function ok(response, data) {
     response.writeHead(200, {'Content-Type': 'text/plain'})
-    const message = action()
-    response.end(message)
+    response.end(data)
 }
 
 function fail(response) {
     response.statusCode = 404
-    response.end("Not found")
+    response.end(http.STATUS_CODES[404])
 }
 
 function start() {
