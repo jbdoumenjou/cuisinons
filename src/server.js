@@ -8,8 +8,8 @@ let instance
 
 const server = http.createServer((request, response) => {
     routes.route(request, response)
-        .then(data => ok(response, data))
-        .catch(fail(response))
+        .then((data) => ok(response, data))
+        .catch((data) => fail(response))
 })
 
 function ok(response, data) {
