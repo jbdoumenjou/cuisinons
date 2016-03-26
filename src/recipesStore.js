@@ -3,20 +3,12 @@
 const uuidGenerator = require('../lib/uuid.js')
 
 // TODO use database instead of a memory object
-const recipeById = new Map();
+let recipeById = new Map();
 
 function list() {
     let result = new Promise((resolve, reject) => {
-        let recipes = []
+        let recipes = Array.from(recipeById, elt => elt[1])
 
-        if (recipeById.size > 0) {
-            const iterator = recipeById.values()
-            let next
-
-            while (next = iterator.next()) {
-                recipes.push(next.value)
-            }
-        }
         resolve(recipes)
     })
 
@@ -26,8 +18,7 @@ function list() {
 // get the first unused uid
 function getUuid() {
     let uid = uuidGenerator.create()
-
-    while (!recipeById.has(uid)) {
+    while (recipeById.has(uid)) {
         uid = uuidGenerator.create()
     }
 

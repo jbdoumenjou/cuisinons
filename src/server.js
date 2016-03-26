@@ -7,9 +7,27 @@ const port = 8080
 let instance
 
 const server = http.createServer((request, response) => {
-    routes.route(request, response)
-        .then((data) => ok(response, data))
-        .catch((data) => fail(response))
+    const headers = request.headers;
+    const method = request.method;
+    const url = request.url;
+    let body = [];
+
+    request.on('error', function(err) {
+        console.error(err);
+    }).on('data', function(chunk) {
+        body.push(chunk);
+    }).on('end', function() {
+        if (body.length > 0) {
+            body = Buffer.concat(body).toString();
+            body = JSON.parse(body)
+        }
+        const requestedRoute = method.toLowerCase() + ' ' + url
+        routes.route(requestedRoute, body)
+            .then((data) => ok(response, data))
+            .catch((data) => fail(response))    
+    });
+
+    
 })
 
 function ok(response, data) {
@@ -33,6 +51,7 @@ function stop() {
 
 module.exports = {
     url: 'http://localhost:' + port,
+    host: 'localhost',
     port: port,
     start: start,
     stop: stop

@@ -2,16 +2,15 @@
 
 const recipeStore = require('./recipesStore')
 const routes = {
-    "get /recipes": recipeStore.list
+    "get /recipes": recipeStore.list,
+    "post /recipes": recipeStore.create
 }
 
-function route(request, response) {
+function route(requestedRoute, body) {
     let result = new Promise((resolve, reject) => {
-        const requestedRoute = request.method.toLowerCase() + ' ' + request.url
         const action = routes[requestedRoute]
-
         if (!!action) {
-            resolve(action())
+            resolve(action(body))
         } else {
             reject()
         }
