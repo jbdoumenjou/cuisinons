@@ -13,8 +13,9 @@ const server = http.createServer((request, response) => {
 })
 
 function ok(response, data) {
-    response.writeHead(200, {'Content-Type': 'text/plain'})
-    response.end(data)
+    response.writeHead(200, {'Content-Type': 'application/json'})
+    let json = JSON.stringify(data)
+    response.end(json)
 }
 
 function fail(response) {
