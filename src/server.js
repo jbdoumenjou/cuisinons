@@ -22,7 +22,7 @@ const server = http.createServer((request, response) => {
             body = JSON.parse(body)
         }
         const requestedRoute = method.toLowerCase() + ' ' + url
-        routes.route(requestedRoute, body)
+        routes.route(request, body)
             .then((data) => ok(response, data))
             .catch((data) => fail(response))    
     });
