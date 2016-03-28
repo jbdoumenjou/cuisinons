@@ -37,9 +37,9 @@ function create(recipe) {
     return result
 }
 
-function update(recipe) {
+function update(id, recipe) {
     let result = new Promise((resolve, reject) => {
-        let old = recipeById.get(recipe.id)
+        let old = recipeById.get(id || recipe.id)
         recipe.id = old.id
         recipe.createdAt = old.createdAt
         recipe.updatedAt = new Date()
