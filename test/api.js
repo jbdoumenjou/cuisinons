@@ -185,7 +185,6 @@ describe('POST /recipes', function () {
 
 })
 
-
 describe('DELETE /recipes/:id', function () {
     before(() => server.start())
     after(() => server.stop())
