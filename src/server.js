@@ -21,7 +21,6 @@ const server = http.createServer((request, response) => {
             body = Buffer.concat(body).toString();
             body = JSON.parse(body)
         }
-        const requestedRoute = method.toLowerCase() + ' ' + url
         routes.route(request, body)
             .then((data) => ok(response, data))
             .catch((data) => fail(response))    

@@ -1,7 +1,6 @@
 'use strict'
 
 const recipesController = require('./recipesController')
-const url = require('url')
 
 const availableResources = {
     'recipes': recipesController

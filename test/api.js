@@ -86,7 +86,7 @@ describe('GET /recipes', function () {
 
 })
 
-describe('get /recipes/:id', function () {
+describe('GET /recipes/:id', function () {
     before(() => server.start())
     after(() => server.stop())
 
@@ -186,7 +186,7 @@ describe('POST /recipes', function () {
 })
 
 
-describe('delete /recipes/:id', function () {
+describe('DELETE /recipes/:id', function () {
     before(() => server.start())
     after(() => server.stop())
 
