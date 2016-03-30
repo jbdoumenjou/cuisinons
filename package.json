@@ -1,0 +1,30 @@
+{
+  "name": "cuisinons",
+  "version": "0.1.0",
+  "description": "A simple cook recipe API and a technical experimentation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha ./test/api.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jbdoumenjou/cuisinons.git"
+  },
+  "keywords": [
+    "cuisine"
+  ],
+  "author": "jb doumenjou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbdoumenjou/cuisinons/issues"
+  },
+  "homepage": "https://github.com/jbdoumenjou/cuisinons#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "engines": {
+    "node": ">=4.4.0"
+  }
+}
