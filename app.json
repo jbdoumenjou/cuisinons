@@ -1,0 +1,8 @@
+{
+  "name": "cuisinons",
+  "description": "A simple cook recipe API and a technical experimentation",
+  "repository": "https://github.com/jbdoumenjou/cuisinons",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "cuisine"],
+  "image": "heroku/nodejs"
+}
