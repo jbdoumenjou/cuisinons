@@ -2,7 +2,7 @@
 
 const http = require('http')
 const routes = require('./routes.js')
-const port = 8080
+const port = process.env.PORT || 5000
 
 let instance
 
