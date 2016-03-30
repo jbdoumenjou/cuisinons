@@ -1,6 +1,6 @@
 {
   "name": "cuisinons",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A simple cook recipe API and a technical experimentation",
   "main": "index.js",
   "scripts": {
