@@ -17,10 +17,11 @@ function list() {
 
 // get the first unused uid
 function getUuid() {
-    let uid = uuidGenerator.create()
-    while (recipeById.has(uid)) {
+    let uid;
+    
+    do {
         uid = uuidGenerator.create()
-    }
+    } while (recipeById.has(uid))
 
     return uid
 }
