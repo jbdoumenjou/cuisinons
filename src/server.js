@@ -42,6 +42,7 @@ function fail(response) {
 
 function start() {
     instance = server.listen(port)
+    console.log('start listening on port ' + port)
 }
 
 function stop() {
