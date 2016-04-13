@@ -1,8 +1,10 @@
 'use strict'
 
 const recipesController = require('./recipesController')
+const rootController = require('./rootController')
 
 const availableResources = {
+    '': rootController,
     'recipes': recipesController
 }
 
