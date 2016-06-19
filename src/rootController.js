@@ -1,11 +1,9 @@
 'use strict'
 
-function list() {
-    let result = new Promise((resolve, reject) => {
+const list = () => {
+    return new Promise((resolve, reject) => {
         resolve()
     })
-
-    return result
 }
 
 module.exports = {

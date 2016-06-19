@@ -9,7 +9,7 @@ const availableResources = {
 }
 
 // basic path parsing
-function getResourceInfo(path) {
+const getResourceInfo = (path) => {
     let parts = path.split('/')
     if (parts[0].length === 0) {
         parts.shift()
@@ -32,7 +32,7 @@ function getResourceInfo(path) {
  patch/put /resources/:id    => update a resource
  delete /resources/:id       => delete a resource
  */
-function route(request, body) {
+const route = (request, body) => {
     const method = request.method.toLowerCase()
     const path = request.url
 

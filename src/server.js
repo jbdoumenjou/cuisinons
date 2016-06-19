@@ -7,9 +7,9 @@ const port = process.env.PORT || 5000
 let instance
 
 const server = http.createServer((request, response) => {
-    const headers = request.headers;
-    const method = request.method;
-    const url = request.url;
+    // const headers = request.headers;
+    // const method = request.method;
+    // const url = request.url;
     let body = [];
 
     request.on('error', function(err) {
@@ -25,29 +25,25 @@ const server = http.createServer((request, response) => {
             .then((data) => ok(response, data))
             .catch((data) => fail(response))    
     });
-
-    
 })
 
-function ok(response, data) {
+const ok = (response, data) => {
     response.writeHead(200, {'Content-Type': 'application/json'})
     let json = JSON.stringify(data)
     response.end(json)
 }
 
-function fail(response) {
+const fail = (response) => {
     response.statusCode = 404
     response.end(http.STATUS_CODES[404])
 }
 
-function start() {
+const start = () => {
     instance = server.listen(port)
     console.log('start listening on port ' + port)
 }
 
-function stop() {
-    instance.close()
-}
+const stop = () => { instance.close() }
 
 module.exports = {
     url: 'http://localhost:' + port,
