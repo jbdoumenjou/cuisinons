@@ -3,6 +3,7 @@
 const http = require('http')
 const routes = require('./routes.js')
 const port = process.env.PORT || 5000
+const host = process.env.HOST || 'localhost'
 
 let instance
 
@@ -40,14 +41,14 @@ const fail = (response) => {
 
 const start = () => {
     instance = server.listen(port)
-    console.log('start listening on port ' + port)
+    console.log(`start listening on port ${port}`)
 }
 
-const stop = () => { instance.close() }
+const stop = () => instance.close()
 
 module.exports = {
-    url: 'http://localhost:' + port,
-    host: 'localhost',
+    url: `http://${host}:${port}`,
+    host: host,
     port: port,
     start: start,
     stop: stop

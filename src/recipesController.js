@@ -5,7 +5,7 @@ const uuidGenerator = require('../lib/uuid.js')
 // TODO use database instead of a memory object
 let recipeById = new Map();
 
-function list() {
+const list = () => {
     let result = new Promise((resolve, reject) => {
         let recipes = Array.from(recipeById, elt => elt[1])
 
@@ -16,18 +16,17 @@ function list() {
 }
 
 // get the first unused uid
-function getUuid() {
+const getUuid = () => {
     let uid;
-    
-    do {
-        uid = uuidGenerator.create()
-    } while (recipeById.has(uid))
+
+    do { uid = uuidGenerator.create() }
+    while (recipeById.has(uid))
 
     return uid
 }
 
-function create(recipe) {
-    let result = new Promise((resolve, reject) => {
+const create = (recipe) => {
+    let result = new Promise((resolve) => {
         recipe.id = getUuid()
         recipe.createdAt = new Date()
         recipe.updatedAt = new Date()
@@ -38,7 +37,7 @@ function create(recipe) {
     return result
 }
 
-function update(id, recipe) {
+const update = (id, recipe) => {
     let result = new Promise((resolve, reject) => {
         let old = recipeById.get(id || recipe.id)
         recipe.id = old.id
@@ -52,7 +51,7 @@ function update(id, recipe) {
     return result
 }
 
-function get(recipeId) {
+const get = (recipeId) => {
     let result = new Promise((resolve, reject) => {
         if (recipeById.has(recipeId)) {
             resolve(recipeById.get(recipeId))
@@ -65,8 +64,8 @@ function get(recipeId) {
     return result
 }
 
-function remove(recipeId) {
-    let result = new Promise((resolve, reject) => {
+const remove = (recipeId) => {
+    let result = new Promise((resolve) => {
         recipeById.delete(recipeId)
         resolve(recipeId)
     })

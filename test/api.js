@@ -55,7 +55,7 @@ describe('GET /recipes', function () {
                 expect(body).to.be.instanceof(Array);
                 expect(body).to.be.empty
                 done()
-            });
+            })
 
 
         })
@@ -80,7 +80,7 @@ describe('GET /recipes', function () {
                 checkRecipe(testRecipe, body[0])
 
                 done()
-            });
+            })
         })
     })
 
@@ -129,7 +129,7 @@ describe('GET /recipes/:id', function () {
                     body = JSON.parse(body)
                     checkRecipe(recipe, body)
                     done()
-                });
+                })
             })
 
             request.end()
@@ -176,7 +176,7 @@ describe('POST /recipes', function () {
                 body = JSON.parse(body)
                 checkRecipe(recipe, body)
                 done()
-            });
+            })
         })
 
         request.write(data)
@@ -228,7 +228,7 @@ describe('DELETE /recipes/:id', function () {
                     body = JSON.parse(body)
                     expect(body).to.be.equal(recipe.id)
                     done()
-                });
+                })
             })
 
             request.end()

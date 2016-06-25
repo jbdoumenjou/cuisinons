@@ -1,7 +1,7 @@
 'use strict'
 
 const list = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         resolve()
     })
 }
